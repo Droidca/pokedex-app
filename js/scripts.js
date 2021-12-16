@@ -1,3 +1,5 @@
+//Pokemon atributes for pokédex
+
     let pokemonList = [
       {
         name: 'Bulbasaur',
@@ -45,6 +47,12 @@
         type: 'Water'
       }
     ];
+
+    //this loop alows the pokémon atributes to be displayed on the page.
+
+    //if condition added, so there is an extra comment for a bigger pokémon.
+
+    //added <br> for line breaks, so the information gets properly displayed.
 
     for (let i = 0; i < pokemonList.length; i++) {
       document.write(pokemonList[i].name + " " + "(Height: "
