@@ -1,0 +1,9 @@
+body {
+  	background: #407088;
+    color: white;
+}
+
+.pokedex_template {
+  margin: auto;
+  display: block;
+}
