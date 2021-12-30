@@ -2,46 +2,55 @@
 
     let pokemonList = [
       {
+        number: '#001',
         name: 'Bulbasaur',
         height: 0.7,
         type: ['Grass', 'Poison']
       },
       {
+        number: '#002',
         name: 'Ivysaur',
         height: 1.0,
         type: ['Grass', 'Poison']
       },
       {
+        number: '#003',
         name: 'Venusaur',
         height: 2.0,
         type: ['Grass', 'Poison']
       },
       {
+        number: '#004',
         name: 'Charmander',
         height: 0.6,
         type: 'Fire'
       },
       {
+        number: '#005',
         name: 'Charmeleon',
         height: 1.1,
         type: 'Fire'
       },
       {
+        number: '#006',
         name: 'Charizard',
         height: 1.7,
         type: ['Fire', 'Flying']
       },
       {
+        number: '#007',
         name: 'Squirtle',
         height: 0.5,
         type: 'Water'
       },
       {
+        number: '#008',
         name: 'Wartortle',
         height: 1.0,
         type: 'Water'
       },
       {
+        number: '#009',
         name: 'Blastoise',
         height: 1.6,
         type: 'Water'
@@ -54,11 +63,16 @@
 
     //added <br> for line breaks, so the information gets properly displayed.
 
-    for (let i = 0; i < pokemonList.length; i++) {
+    /*for (let i = 0; i < pokemonList.length; i++) {
       document.write(pokemonList[i].name + " " + "(Height: "
       + pokemonList[i].height + ", Type: " + pokemonList[i].type + ") ");
       if(pokemonList[i].height > 1.5){
         document.write('That pokemon is huge!');
       }
       document.write('<br>');
-    }
+    }*/
+
+    pokemonList.forEach(function(pokemon) {
+        document.write('<p>' + pokemon.number + ' ' + pokemon.name + ', height: '
+        + pokemon.height + ' ft, types: ' + pokemon.type + '</p>')
+    });
