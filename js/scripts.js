@@ -1,7 +1,7 @@
 //Pokemon atributes for pokédex
 
 let pokemonRepository = (function () {
-    let pokemonList = [
+    let pokedex = [
         {
           number: '#001',
           name: 'Bulbasaur',
@@ -59,35 +59,30 @@ let pokemonRepository = (function () {
     ];
 
     function getAll() {
-        return pokemonList;
+        return pokedex;
     }
 
     function add(newPokemon) {
-        pokemonList.push(newPokemon);
+        pokedex.push(newPokemon);
+    }
+
+    function addListItem(pokemon){
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listpokemon = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerText = pokemon.name;
+        button.classList.add("button-class");
+        listpokemon.appendChild(button);
+        pokemonList.appendChild(listpokemon);
     }
 
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem
     };
 })();
 
-  //this loop alows the pokémon atributes to be displayed on the page.
-
-  //if condition added, so there is an extra comment for a bigger pokémon.
-
-function myPokedex(list) {
-  list.forEach(function(pokemon) {
-      if (pokemon.height >= 1.5) {
-          document.write('<p>' + pokemon.number + ' ' + pokemon.name + ', height: '
-          + pokemon.height + ' ft, types: ' + pokemon.type + ' (Wow! That is huge!)' + '</p>');
-      }
-      else {
-        document.write('<p>' + pokemon.number + ' ' + pokemon.name + ', height: '
-        + pokemon.height + ' ft, types: ' + pokemon.type + '</p>');
-      }
-  });
-}
-
-
-myPokedex(pokemonRepository.getAll());
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
