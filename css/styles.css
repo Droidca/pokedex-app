@@ -7,3 +7,32 @@ body {
   margin: auto;
   display: block;
 }
+
+li {
+  list-style-type: none;
+}
+
+.button-class {
+  border: none;
+  display: inline-block;
+  background-color: #357b70;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  -webkit-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+}
+
+.button-class:hover {
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.button-class:focus {
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.8;
+}
