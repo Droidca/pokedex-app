@@ -12,11 +12,13 @@ li {
   list-style-type: none;
 }
 
+/*I need to costumize the colors of buttons for each type*/
+
 .button-class {
   border: none;
   display: inline-block;
-  background-color: #357b70;
-  color: #fff;
+  background-color: white;
+  color: black;
   text-decoration: none;
   padding: 10px;
   border-radius: 3px;
