@@ -11,6 +11,12 @@ let pokemonRepository = (function () {
     return pokedex;
   }
 
+  // Function to Capitalize First letter
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 //Function allows to add pokemonList
 
   function add(pokemon) {
@@ -43,7 +49,7 @@ let pokemonRepository = (function () {
     //Function makes clicking the button show details of pokemon in console
 
     function addListItemBtn(button, pokemon){
-      button.addEventListener('click', function(){
+      button.addEventListener('click', function() {
         showDetails(pokemon);
       });
     }
@@ -57,7 +63,7 @@ let pokemonRepository = (function () {
     }).then(function(json){
       json.results.forEach(function(item){
         let pokemon = {
-          name: item.name,
+          name: capitalizeFirstLetter(item.name),
           detailsUrl: item.url
         };
         add (pokemon);
@@ -107,16 +113,36 @@ let pokemonRepository = (function () {
     namePokemon.innerText = pokemon.name;
 
     let heightPokemon = document.createElement('p');
-    heightPokemon.innerText = 'Height: ' + pokemon.height;
+    heightPokemon.innerText = 'Height: ' + (pokemon.height*0.1).toFixed(2) + ' m';
 
     let weightPokemon = document.createElement('p');
-    weightPokemon.innerText = 'Weight: ' + pokemon.weight;
+    weightPokemon.innerText = 'Weight: ' + (pokemon.weight*0.1).toFixed(2) + ' Kg';
 
     let typePokemon = document.createElement('p');
-    typePokemon.innerText = 'Type(s): ' + pokemon.types;
+    let type1 = capitalizeFirstLetter(pokemon.types[0].type.name);
+    if (pokemon.types[1] === undefined) {
+      typePokemon.innerText = 'Type(s): ' + type1;
+    } else {
+      let type2 = capitalizeFirstLetter(pokemon.types[1].type.name);
+      typePokemon.innerText = 'Type(s): ' + type1 + ', ' + type2;
+    }
+
 
     let abilityPokemon = document.createElement('p');
-    abilityPokemon.innerText = 'Abilities: ' + pokemon.abilities;
+    let ability1 = capitalizeFirstLetter(pokemon.abilities[0].ability.name);
+
+    if (pokemon.abilities[1] === undefined &&
+      pokemon.abilities[2] === undefined) {
+      abilityPokemon.innerText = 'Abilities: ' + ability1;
+    } else if(pokemon.abilities[2] === undefined) {
+      let ability2 = capitalizeFirstLetter(pokemon.abilities[1].ability.name);
+      abilityPokemon.innerText = 'Abilities: ' + ability1 + ', ' + ability2;
+    } else {
+      let ability2 = capitalizeFirstLetter(pokemon.abilities[1].ability.name);
+      let ability3 = capitalizeFirstLetter(pokemon.abilities[2].ability.name);
+      abilityPokemon.innerText = 'Abilities: ' + ability1 + ', ' + ability2 + ', '
+      + ability3;
+    }
 
     let imagePokemon = document.createElement('img');
     imagePokemon.src = pokemon.imageUrl;
