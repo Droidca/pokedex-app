@@ -3,6 +3,7 @@
 let pokemonRepository = (function () {
   let pokedex = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+  let modalContainer = document.querySelector('#modal-container');
 
   //Function will return every pokemon in pokedex
 
@@ -39,9 +40,17 @@ let pokemonRepository = (function () {
     addListItemBtn(button, pokemon);
   }
 
+    //Function makes clicking the button show details of pokemon in console
+
+    function addListItemBtn(button, pokemon){
+      button.addEventListener('click', function(){
+        showDetails(pokemon);
+      });
+    }
+
   //function that fetches the list of pokemon
 
-  
+
   function loadList(){
     return fetch (apiUrl).then(function(response){
       return response.json();
@@ -55,39 +64,99 @@ let pokemonRepository = (function () {
       });
     }).catch(function(e){
       console.error(e);
-    })
+    });
   }
 
   //function that fetches the details
 
-  function loadDetails(item){
-    let url = item.detailsUrl;
+  function loadDetails(pokemon){
+    let url = pokemon.detailsUrl;
     return fetch(url).then(function(response){
       return response.json();
     }).then(function(details){
-      item.imageUrl = details.sprites.front_default;
-      item.heigth = details.height;
-      item.weight = details.wieght;
-      item.types = details.types;
-      item.abilities = details.abilities;
-    })
+      pokemon.imageUrl = details.sprites.front_default;
+      pokemon.height = details.height;
+      pokemon.weight = details.weight;
+      pokemon.types = details.types;
+      pokemon.abilities = details.abilities;
+    }).catch(function (e) {
+    console.error(e);
+    });
   }
 
   //Function shows in console details from pokemon
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then( function() {
-      console.log(pokemon);
+      showModal(pokemon);
     });
   }
 
-  //Function makes clicking the button show details of pokemon in console
+  function showModal(pokemon) {
 
-  function addListItemBtn(button, pokemon){
-    button.addEventListener('click', function(){
-      showDetails(pokemon);
-    });
+    modalContainer.innerHTML = '';
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let closeButton = document.createElement('button');
+    closeButton.classList.add('modal-close');
+    closeButton.innerText = 'Close';
+    closeButton.addEventListener('click', hideModal);
+
+    let namePokemon = document.createElement('h1');
+    namePokemon.innerText = pokemon.name;
+
+    let heightPokemon = document.createElement('p');
+    heightPokemon.innerText = 'Height: ' + pokemon.height;
+
+    let weightPokemon = document.createElement('p');
+    weightPokemon.innerText = 'Weight: ' + pokemon.weight;
+
+    let typePokemon = document.createElement('p');
+    typePokemon.innerText = 'Type(s): ' + pokemon.types;
+
+    let abilityPokemon = document.createElement('p');
+    abilityPokemon.innerText = 'Abilities: ' + pokemon.abilities;
+
+    let imagePokemon = document.createElement('img');
+    imagePokemon.src = pokemon.imageUrl;
+
+    modal.appendChild(closeButton);
+    modal.appendChild(namePokemon);
+    modal.appendChild(imagePokemon);
+    modal.appendChild(heightPokemon);
+    modal.appendChild(weightPokemon);
+    modal.appendChild(typePokemon);
+    modal.appendChild(abilityPokemon);
+
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
   }
+
+  function hideModal(){
+    modalContainer.classList.remove('is-visible');
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
+      hideModal();
+    }
+  });
+
+  modalContainer.addEventListener('click', (e) => {
+    let target = e.target;
+    if(target === modalContainer){
+      hideModal();
+    }
+  });
+
+
+
+  document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal();
+  });
+
 
   return {
     getAll: getAll,
@@ -96,7 +165,10 @@ let pokemonRepository = (function () {
     addListItemBtn: addListItemBtn,
     showDetails: showDetails,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    showModal: showModal,
+    hideModal: hideModal
+
   };
 })();
 
