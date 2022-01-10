@@ -153,11 +153,6 @@ let pokemonRepository = (function () {
 
 
 
-  document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal();
-  });
-
-
   return {
     getAll: getAll,
     add: add,
