@@ -40,6 +40,7 @@ let pokemonRepository = (function () {
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
+    button.classList.add("button");
     button.classList.add("btn");
     button.classList.add("btn-link");
     listpokemon.appendChild(button);
@@ -51,7 +52,7 @@ let pokemonRepository = (function () {
 
     function addListItemBtn(button, pokemon){
       button.addEventListener('click', function() {
-        showDetails(pokemon);
+        showDetails(pokemon, modalContainer);
       });
     }
 
@@ -104,12 +105,6 @@ let pokemonRepository = (function () {
     let modalHeader = document.querySelector('.modal-header');
     let modalBody = document.querySelector('.modal-body');
 
-    let closeButton = document.createElement('button');
-    closeButton.classList.add('modal-close');
-    closeButton.innerText = 'Close';
-    closeButton.addEventListener('click', hideModal);
-
-
     let namePokemon = document.createElement('h1');
     namePokemon.innerText = pokemon.name;
 
@@ -149,32 +144,13 @@ let pokemonRepository = (function () {
     imagePokemon.src = pokemon.imageUrl;
 
     modalHeader.appendChild(namePokemon);
-    modalHeader.appendChild(closeButton);
     modalBody.appendChild(imagePokemon);
     modalBody.appendChild(heightPokemon);
     modalBody.appendChild(weightPokemon);
     modalBody.appendChild(typePokemon);
     modalBody.appendChild(abilityPokemon);
 
-    modalContainer.classList.add('is-visible');
   }
-
-  function hideModal(){
-    modalContainer.classList.remove('is-visible');
-  }
-
-  window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
-      hideModal();
-    }
-  });
-
-  modalContainer.addEventListener('click', (e) => {
-    let target = e.target;
-    if(target === modalContainer){
-      hideModal();
-    }
-  });
 
 
 
@@ -186,8 +162,7 @@ let pokemonRepository = (function () {
     showDetails: showDetails,
     loadList: loadList,
     loadDetails: loadDetails,
-    showModal: showModal,
-    hideModal: hideModal
+    showModal: showModal
 
   };
 })();
