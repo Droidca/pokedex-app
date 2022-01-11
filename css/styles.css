@@ -13,29 +13,12 @@ li {
 
 /*I need to costumize the colors of buttons for each type*/
 
-.button-class {
-  border: none;
-  display: inline-block;
-  background-color: white;
-  color: black;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 3px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  -webkit-transition: 0.2s opacity;
-  transition: 0.2s opacity;
+.btn-link {
+  color: white;
 }
 
-.button-class:hover {
-  cursor: pointer;
-  color: #fff;
-  opacity: 0.8;
-}
-
-.button-class:focus {
-  cursor: pointer;
-  color: #fff;
-  opacity: 0.8;
+.btn-link:hover {
+  color: white;
 }
 
 #modal-container {
@@ -59,17 +42,6 @@ li {
   text-align: center;
 }
 
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #fff;
-  padding: 15px;
-  width: 100%;
-  max-width: 700px;
-  text-align: left;
-}
-
 .modal-close {
   float: right;
   -webkit-appearance: none;
@@ -77,14 +49,6 @@ li {
   background: none;
   color: #777;
   text-decoration: underline;
-}
-
-.modal h1 {
-  margin-top: 0;
-}
-
-.modal p {
-  margin-bottom: 0;
 }
 
 #modal-container {
