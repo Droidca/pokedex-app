@@ -14,7 +14,32 @@
 
   <body>
 
-    <ul class="pokemon-list list-group"></ul>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="img/logo.png" width="300" height="100" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Github</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class= "overlap">
+      <img src="img/pokedex.png" class="pokedex" alt="">
+      <ul class="pokemon-list list-group" style= "height:190px;width:302px;font:16px/26px Georgia, Garamond, Serif;overflow:auto;"></ul>
+    </div>
 
     <div class="modal" id="modal-container" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">

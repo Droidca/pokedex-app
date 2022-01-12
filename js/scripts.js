@@ -40,6 +40,7 @@ let pokemonRepository = (function () {
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
+    button.classList.add("button-for-modal");
     button.classList.add("btn");
     button.classList.add("btn-link");
     listpokemon.appendChild(button);
@@ -104,13 +105,8 @@ let pokemonRepository = (function () {
     let modalHeader = document.querySelector('.modal-header');
     let modalBody = document.querySelector('.modal-body');
 
-    let closeButton = document.createElement('button');
-
-    closeButton.classList.add('modal-close');
-    closeButton.innerText = 'Close';
-    closeButton.addEventListener('click', hideModal);
-
     let namePokemon = document.createElement('h1');
+    namePokemon.classList.add('poke-name');
     namePokemon.innerText = pokemon.name;
 
     let heightPokemon = document.createElement('p');
@@ -146,10 +142,10 @@ let pokemonRepository = (function () {
     }
 
     let imagePokemon = document.createElement('img');
+    imagePokemon.classList.add('sprite');
     imagePokemon.src = pokemon.imageUrl;
 
     modalHeader.appendChild(namePokemon);
-    modalHeader.appendChild(closeButton);
     modalBody.appendChild(imagePokemon);
     modalBody.appendChild(heightPokemon);
     modalBody.appendChild(weightPokemon);
