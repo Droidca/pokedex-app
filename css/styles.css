@@ -70,11 +70,14 @@ li {
   float: left;
   width: 120px;
   height: 120px;
-  left: 500px;
 }
 
 .modal-header {
   margin: auto;
+}
+
+.poke-name{
+  font-size: 12px;
 }
 
 .pokedex {
@@ -86,6 +89,15 @@ li {
 }
 
 .modal-content {
-  height: 275px;
+  text-align: right;
+  height: 150px;
   font-size: 10px;
+  top: 380px;
+  width: 300px;
+  left: 340px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
