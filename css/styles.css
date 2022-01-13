@@ -1,5 +1,7 @@
 body {
   	background: #407088;
+    background-image: url("https://i.pinimg.com/originals/8c/67/d4/8c67d4ee5514c82edb37d04df34c8c37.gif");
+    background-repeat: repeat;
 }
 
 li {
@@ -7,6 +9,10 @@ li {
 }
 
 /*I need to costumize the colors of buttons for each type*/
+
+.btn {
+  font-family: 'VT323', monospace;
+}
 
 .btn-link {
   color: black;
@@ -58,34 +64,26 @@ li {
 }
 
 .pokemon-list {
-  position: absolute;
-  top: 30%;
+  position: fixed;
   text-align: center;
-  height:29.5%;
-  width:17%;
   border:3px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #a5baa9;
 }
 
 .sprite {
   float: left;
-  width: 120px;
-  height: 120px;
 }
 
 .modal-header {
   margin: auto;
 }
 
-.poke-name{
-  font-size: 12px;
-}
-
 .pokedex {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2%;
-  height: 500px;
 }
 
 .modal-content {
@@ -97,42 +95,137 @@ p {
   padding: 0;
 }
 
-@media all and (min-width: 1900px) and (max-width: 2650px) {
+@media only screen and (max-width: 760px) {
 
   .pokedex {
-    display: block;
-    width: 1800px;
-    height: 1250px;
+    padding-top: 50px;
+    width: 310px;
+    height: 480px;
   }
 
   .pokemon-list {
     display: block;
     position:relative;
-    width: 565px;
-    margin-left: auto;
-    margin-right: auto;
-    right: 430px;
-    bottom: 875px;
-    height: 370px;
+    width: 100px;
+    right: 75px;
+    height: 145px;
+    bottom: 318px;
   }
 
   .btn {
-    font-size: 48px;
+    font-size: 13px;
   }
 
   .modal-content {
-    font-size: 48px;
-    width: 1000px;
-    top: 425px;
-    left: 250px;
-    height: 550px;
-}
+    font-size: 14px;
+    width: 300px;
+    top: 200px;
+    right: 25px;
+    height: 250px;
+  }
 
   .poke-name{
-    font-size: 60px;
+    font-size: 16px;
   }
 
   .sprite {
-    width: 500px;
-    height: 500px;
+    text-align: justify;
+    width: 100px;
+    height: 100px;
   }
+
+  nav {
+    height: 125px;
+  }
+}
+
+
+
+@media only screen and (min-width: 760px) and (max-width:1200px) {
+
+  .pokedex {
+    width: 750px;
+    height: 500px;
+    padding-right: 40px;
+    padding-top: 50px;
+  }
+
+  .pokemon-list {
+    display: block;
+    position:relative;
+    width: 240px;
+    right: 187px;
+    height: 150px;
+    bottom: 332px;
+  }
+
+  .btn {
+    font-size: 24px;
+  }
+
+  .modal-content {
+    font-size: 12px;
+    width: 300px;
+    top: 192px;
+    left: 300px;
+    height: 190px;
+  }
+
+  .poke-name{
+    font-size: 14px;
+  }
+
+  .sprite {
+    text-align: justify;
+    width: 120px;
+    height: 120px;
+  }
+
+  nav {
+    height: 100px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .pokedex {
+    width: 800px;
+    height: 580px;
+    padding-top: 50px;
+  }
+
+  .pokemon-list {
+    display: block;
+    position:relative;
+    width: 260px;
+    right: 190px;
+    height: 160px;
+    bottom: 372px;
+  }
+
+  .btn {
+    font-size: 24px;
+  }
+
+  .modal-content {
+    font-size: 14px;
+    width: 325px;
+    top: 250px;
+    left: 300px;
+    height: 225px;
+  }
+
+  .poke-name{
+    font-size: 16px;
+  }
+
+  .sprite {
+    text-align: justify;
+    width: 120px;
+    height: 120px;
+  }
+
+  nav {
+    height: 100px;
+  }
+}
