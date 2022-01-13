@@ -21,13 +21,13 @@ let pokemonRepository = (function () {
 
   function add(pokemon) {
     if (
-      typeof pokemon === "object" &&
-      "name" in pokemon &&
-      "detailsUrl" in pokemon
+    typeof pokemon === 'object' &&
+      'name' in pokemon &&
+      'detailsUrl' in pokemon
     ) {
       pokedex.push(pokemon);
     } else {
-      console.log("pokemon is not correct");
+      console.log('pokemon is not correct');
     }
   }
 
@@ -36,13 +36,13 @@ let pokemonRepository = (function () {
   //IDEA: Costumize button color acording to pokemon type with if/else
 
   function addListItem(pokemon){
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listpokemon = document.createElement("li");
-    let button = document.createElement("button");
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listpokemon = document.createElement('li');
+    let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add("button-for-modal");
-    button.classList.add("btn");
-    button.classList.add("btn-link");
+    button.classList.add('button-for-modal');
+    button.classList.add('btn');
+    button.classList.add('btn-link');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
     addListItemBtn(button, pokemon);
